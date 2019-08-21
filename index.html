@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>form</title>
+    <link rel="stylesheet" href="main.css">
+      </head> 
+       
+    <body> 
+    <h1 style="text-align: center">HTML form validation with javascript</h1>   
+    
+    <div class="container">
+
+        <form name="RegForm" onsubmit="return myform()" method="post">  
+          
+        <p>Name: <input type="text" size=40 name="Name" placeholder="your name" > </p>        
+        <p> Address: <input type="text" size=40 name="Address" placeholder="your address" >  </p>
+        <p>E-mail Address: <input type="text" size=65 name="EMail" placeholder="example@gmail.com" ></p>
+         <p>Password: <input type="password" size=20 name="Password" placeholder="Use only number 0-9"> </p>
+        <p>Telephone: <input type="text" size=25 name="Telephone"> </p> 
+               
+        <p>Select Your Gender: <br>
+                <input type="radio" name="gender" value="male" checked> Male<br>
+                <input type="radio" name="gender" value="female"> Female<br>
+                <input type="radio" name="gender" value="other"> Other
+            </p>
+
+        <p><input type="submit" value="Send" name="Submit">      
+            <input type="reset" value="Reset" name="Reset">   
+        </p>          
+    </form> 
+</div>
+
+    <script> 
+        function myform()                                    
+        { 
+            var name = document.forms["RegForm"]["Name"];               
+            var email = document.forms["RegForm"]["EMail"];    
+            var phone = document.forms["RegForm"]["Telephone"];  
+            var password = document.forms["RegForm"]["Password"];  
+            var address = document.forms["RegForm"]["Address"];  
+           
+            if (name.value == "")                                  
+            { 
+                window.alert("Please enter your name."); 
+                name.focus(); 
+                return false; 
+            } 
+           
+            if (address.value == "")                               
+            { 
+                window.alert("Please enter your address."); 
+                name.focus(); 
+                return false; 
+            } 
+               
+            if (email.value == "")                                   
+            { 
+                window.alert("Please enter a valid e-mail address."); 
+                email.focus(); 
+                return false; 
+            } 
+           
+            if (email.value.indexOf("@", 0) < 0)                 
+            { 
+                window.alert("Please enter a valid e-mail address."); 
+                email.focus(); 
+                return false; 
+            } 
+           
+            if (email.value.indexOf(".", 0) < 0)                 
+            { 
+                window.alert("Please enter a valid e-mail address."); 
+                email.focus(); 
+                return false; 
+            } 
+           
+            if (phone.value == "")                           
+            { 
+                window.alert("Please enter your telephone number."); 
+                phone.focus(); 
+                return false; 
+            } 
+
+            if (password.value == "")                        
+            { 
+                window.alert("Please enter your password"); 
+                password.focus(); 
+                return false; 
+            } 
+            if (password.value.indexOf(0, 9) < 0)                 
+            { 
+                window.alert("Correct your phone Number."); 
+                password.focus(); 
+                return false; 
+            } 
+
+           return true; 
+        }</script> 
+    </body> 
+    </html> 
+    
